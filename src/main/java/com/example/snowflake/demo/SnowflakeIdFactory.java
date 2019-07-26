@@ -14,14 +14,17 @@ import java.util.concurrent.CountDownLatch;
  */
 public class SnowflakeIdFactory {
 
-    /*
-     计算时间戳的减量
-     */
-    private final long twepoch = 0L;
     /**
-     *
+     * 计算时间戳的减量
+     */
+    private final long twepoch = 123L;
+    /**
+     * 工作ID位数
      */
     private final long workerIdBits = 5L;
+    /**
+     *  数据中心
+     */
     private final long datacenterIdBits = 5L;
     private final long maxWorkerId = -1L ^ (-1L << workerIdBits);
     private final long maxDatacenterId = -1L ^ (-1L << datacenterIdBits);
@@ -177,7 +180,7 @@ public class SnowflakeIdFactory {
             e.printStackTrace();
         }
  */
-        SnowflakeIdFactory factory = new SnowflakeIdFactory(1,2);
+        SnowflakeIdFactory factory = new SnowflakeIdFactory(2,2);
         for(int i =0;i<10;i++){
             System.out.println(factory.nextId());
         }
